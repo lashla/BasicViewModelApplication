@@ -12,24 +12,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModelAction()
-        incrementText()
+        viewModelObserver()
+        getInput()
     }
 
-    private fun incrementText() {
+    private fun getInput() {
         button.setOnClickListener{
             if (editText.text.isNullOrEmpty()){
                 Toast.makeText(this, "Enter Something",Toast.LENGTH_LONG).show()
             } else {
-                viewModel.inputData.value = editText.text.toString()
+                viewModel.dataInputHandler(editText.text.toString())
                 editText.text!!.clear()
             }
         }
     }
-    private fun viewModelAction(){
+    private fun viewModelObserver(){
         viewModel = ViewModelProvider(this)[MyViewModel::class.java]
-        viewModel.inputData.observe(this, Observer {
+        viewModel.inputData.observe(this) {
             textView.text = it.toString()
-        })
+        }
     }
 }

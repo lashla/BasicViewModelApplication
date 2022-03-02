@@ -32,9 +32,6 @@ android {
         apply plugin: 'kotlin-android-extensions'
         jvmTarget = '1.8'
     }
-    viewBinding{
-        enabled = true
-    }
 }
 
 dependencies {
