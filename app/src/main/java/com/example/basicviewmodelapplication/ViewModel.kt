@@ -8,7 +8,7 @@ open class MyViewModel: ViewModel() {
     val inputData: MutableLiveData<String> by lazy{
         MutableLiveData<String>()
     }
-    fun dataInputHandler(input: String) {
+    fun setLiveDataValue(input: String) {
         inputData.value = input
     }
 }
