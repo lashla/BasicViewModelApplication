@@ -13,10 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViewModel()
-        onButtonClick()
+        onButtonClickLiveDataModifier()
     }
 
-    private fun onButtonClick() {
+    private fun onButtonClickLiveDataModifier() {
         button.setOnClickListener{
             if (editText.text.isNullOrEmpty()){
                 Toast.makeText(this, "Enter Something",Toast.LENGTH_LONG).show()
